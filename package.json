@@ -5,26 +5,40 @@
   "scripts": {
     "build": "react-router build",
     "dev": "react-router dev",
+    "format": "prettier --write",
     "start": "react-router-serve ./build/server/index.js",
     "typecheck": "react-router typegen && tsc"
   },
   "dependencies": {
+    "@clerk/react-router": "^1.2.7",
+    "@radix-ui/react-slot": "^1.2.0",
     "@react-router/node": "^7.1.5",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "convex": "^1.23.0",
     "isbot": "^5.1.17",
+    "lucide-react": "^0.501.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-router": "^7.1.5"
+    "react-router": "^7.1.5",
+    "tailwind-merge": "^3.2.0"
   },
   "devDependencies": {
+    "@eslint/js": "^9.25.0",
     "@react-router/dev": "^7.1.5",
-    "@tailwindcss/vite": "^4.0.0",
+    "@tailwindcss/vite": "^4.1.4",
     "@types/node": "^20",
     "@types/react": "^19.0.1",
     "@types/react-dom": "^19.0.1",
     "@vercel/node": "^5.1.2",
     "@vercel/react-router": "^1.0.2",
-    "tailwindcss": "^4.0.0",
+    "eslint": "^9.25.0",
+    "eslint-plugin-react": "^7.37.5",
+    "globals": "^16.0.0",
+    "prettier": "^3.5.3",
+    "tailwindcss": "^4.1.4",
     "typescript": "^5.7.2",
+    "typescript-eslint": "^8.30.1",
     "vite": "^5.4.11",
     "vite-tsconfig-paths": "^5.1.4"
   }
