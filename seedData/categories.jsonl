@@ -1,0 +1,5 @@
+{"name": "green", "displayName": "Green Light Foods", "anxietyLevel": "Low", "hexColor": "#00ff00"}
+{"name": "green-yellow", "displayName": "Green-Yellow Foods", "anxietyLevel": "Low-Medium", "hexColor": "#ccff00"}
+{"name": "yellow", "displayName": "Yellow Light Foods", "anxietyLevel": "Medium", "hexColor": "#ffff00"}
+{"name": "yellow-red", "displayName": "Yellow-Red Foods", "anxietyLevel": "Medium-High", "hexColor": "#ff9900"}
+{"name": "red", "displayName": "Red Light Foods", "anxietyLevel": "High", "hexColor": "#ff0000"}

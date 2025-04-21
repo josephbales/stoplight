@@ -1,10 +1,11 @@
-/** @format */
-
 import React from 'react';
 import logoDark from './logo-dark.svg';
 import logoLight from './logo-light.svg';
+import { useQuery } from 'convex/react';
+import { api } from '../../../convex/_generated/api';
 
 export function Welcome({ message }: { message: string }) {
+	const categories = useQuery(api.categories.get);
 	return (
 		<main className="flex items-center justify-center pt-16 pb-4">
 			<div className="flex-1 flex flex-col items-center gap-16 min-h-0">
@@ -31,6 +32,7 @@ export function Welcome({ message }: { message: string }) {
 								</li>
 							))}
 							<li className="self-stretch p-3 leading-normal">{message}</li>
+							{categories?.map((category) => <li key={category._id}>{category.displayName}</li>)}
 						</ul>
 					</nav>
 				</div>

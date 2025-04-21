@@ -1,12 +1,13 @@
-/** @format */
-
 import { isRouteErrorResponse, Links, Meta, Outlet, Scripts, ScrollRestoration } from 'react-router';
 import { rootAuthLoader } from '@clerk/react-router/ssr.server';
 import { ClerkProvider, SignedIn, SignedOut, UserButton, SignInButton } from '@clerk/react-router';
 
 import type { Route } from './+types/root';
 import './app.css';
-import React from 'react';
+import React, { StrictMode } from 'react';
+import { ConvexProvider, ConvexReactClient } from 'convex/react';
+
+const convex = new ConvexReactClient(import.meta.env.VITE_CONVEX_URL as string);
 
 export async function loader(args: Route.LoaderArgs) {
 	return rootAuthLoader(args);
@@ -35,7 +36,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
 				<Links />
 			</head>
 			<body>
-				{children}
+				<StrictMode>
+					<ConvexProvider client={convex}>{children}</ConvexProvider>
+				</StrictMode>
 				<ScrollRestoration />
 				<Scripts />
 			</body>

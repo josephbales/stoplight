@@ -1,5 +1,3 @@
-/** @format */
-
 import type { Route } from './+types/home';
 import { Welcome } from '~/components/welcome/welcome';
 import React from 'react';
