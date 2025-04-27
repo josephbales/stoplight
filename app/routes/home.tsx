@@ -1,15 +1,17 @@
-import type { Route } from './+types/home';
 import { Welcome } from '~/components/welcome/welcome';
 import React from 'react';
 
 export function meta() {
-	return [{ title: 'New React Router App' }, { name: 'description', content: 'Welcome to React Router!' }];
+	return [
+		{ title: 'Stoplight' },
+		{ name: 'description', content: 'The best way to track the foods you like and dislike!' },
+	];
 }
 
-export function loader() {
-	return { message: 'Hello from Vercel' };
-}
-
-export default function Home({ loaderData }: Route.ComponentProps) {
-	return <Welcome message={loaderData.message} />;
+export default function Home() {
+	return (
+		<>
+			<Welcome />
+		</>
+	);
 }

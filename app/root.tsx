@@ -1,13 +1,16 @@
 import { isRouteErrorResponse, Links, Meta, Outlet, Scripts, ScrollRestoration } from 'react-router';
 import { rootAuthLoader } from '@clerk/react-router/ssr.server';
-import { ClerkProvider, SignedIn, SignedOut, UserButton, SignInButton } from '@clerk/react-router';
+import { ClerkProvider, useAuth } from '@clerk/react-router';
 
 import type { Route } from './+types/root';
 import './app.css';
 import React, { StrictMode } from 'react';
-import { ConvexProvider, ConvexReactClient } from 'convex/react';
+import { ConvexReactClient } from 'convex/react';
+import NavBar from '~/components/navbar/navbar';
+import { ConvexProviderWithClerk } from 'convex/react-clerk';
 
 const convex = new ConvexReactClient(import.meta.env.VITE_CONVEX_URL as string);
+const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY as string;
 
 export async function loader(args: Route.LoaderArgs) {
 	return rootAuthLoader(args);
@@ -35,12 +38,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
 				<Meta />
 				<Links />
 			</head>
-			<body>
-				<StrictMode>
-					<ConvexProvider client={convex}>{children}</ConvexProvider>
-				</StrictMode>
-				<ScrollRestoration />
-				<Scripts />
+			<body className="bg-background dark:bg-radial-[at_100%_0%] from-green-900 to-cyan-950 text-black dark:text-white h-screen">
+				<div className="p-4 h-full overflow-y-auto">
+					<StrictMode>{children}</StrictMode>
+					<ScrollRestoration />
+					<Scripts />
+				</div>
 			</body>
 		</html>
 	);
@@ -48,18 +51,13 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
 export default function App({ loaderData }: Route.ComponentProps) {
 	return (
-		<ClerkProvider loaderData={loaderData} signUpFallbackRedirectUrl="/" signInFallbackRedirectUrl="/">
-			<header className="flex items-center justify-center py-8 px-4">
-				<SignedOut>
-					<SignInButton />
-				</SignedOut>
-				<SignedIn>
-					<UserButton />
-				</SignedIn>
-			</header>
-			<main>
-				<Outlet />
-			</main>
+		<ClerkProvider loaderData={loaderData} publishableKey={PUBLISHABLE_KEY}>
+			<ConvexProviderWithClerk client={convex} useAuth={useAuth}>
+				<NavBar />
+				<main>
+					<Outlet />
+				</main>
+			</ConvexProviderWithClerk>
 		</ClerkProvider>
 	);
 }

@@ -1,0 +1,16 @@
+<svg width="136" height="292" viewBox="0 0 136 292" xmlns="http://www.w3.org/2000/svg">
+    <rect width="136" height="292" fill="#222" rx="24" ry="24" stroke="#333" stroke-width="2" />
+    <rect width="128" height="284" fill="none" x="4" y="4" rx="22" ry="22" stroke="#666" stroke-width="2" />
+    <rect width="120" height="276" fill="none" x="8" y="8" rx="20" ry="20" stroke="#666" stroke-width="2" />
+    <rect width="112" height="268" fill="none" x="12" y="12" rx="18" ry="18" stroke="#666" stroke-width="2" />
+    <rect width="104" height="260" fill="none" x="16" y="16" rx="16" ry="16" stroke="#666" stroke-width="2" />
+    <g transform="translate(20, 20)">
+        <rect width="96" height="252" fill="#ffcc00" rx="12" ry="12" stroke="#333" stroke-width="3" />
+        <circle cx="48" cy="48" r="36" fill="#aa0000" stroke="#222" stroke-width="3" />
+        <circle cx="48" cy="126" r="36" fill="#ffff00" stroke="#222" stroke-width="3" />
+        <circle cx="48" cy="204" r="36" fill="#00aa00" stroke="#222" stroke-width="3" />
+        <path d="M 18 68 A 36 36, 0, 1, 1, 78 68 A 32 32, 0, 1, 0, 18 68 Z " fill="#222" />
+        <path d="M 18 146 A 36 36, 0, 1, 1, 78 146 A 32 32, 0, 1, 0, 18 146 Z " fill="#222" />
+        <path d="M 18 224 A 36 36, 0, 1, 1, 78 224 A 32 32, 0, 1, 0, 18 224 Z" fill="#222" />
+    </g>
+</svg>
